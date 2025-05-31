@@ -90,14 +90,14 @@ function showEnvironmentalFact() {
     const popup = document.createElement('div');
     popup.style.cssText = `
         position: fixed;
-        top: 20px;
+        top: 90px;
         right: 20px;
         background: linear-gradient(135deg, #4a7c59, #90c695);
         color: white;
         padding: 1rem;
         border-radius: 10px;
         box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        max-width: 300px;
+        max-width: 380px;
         z-index: 2000;
         transform: translateX(100%);
         transition: transform 0.3s ease;
@@ -139,27 +139,127 @@ if (window.location.pathname.endsWith("index.html") || window.location.pathname 
 }
 
 // Form keluhan lingkungan
-document.getElementById('complaintForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Check if on index.html or the root page before adding event listener for complaintForm
+if (document.getElementById('complaintForm')) {
+    document.getElementById('complaintForm').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-    const judul = document.getElementById('judul').value.trim();
-    const lokasi = document.getElementById('lokasi').value.trim();
-    const keluhan = document.getElementById('keluhan').value.trim();
+        const judul = document.getElementById('judul').value.trim();
+        const lokasi = document.getElementById('lokasi').value.trim();
+        const keluhan = document.getElementById('keluhan').value.trim();
 
-    if (!judul || !lokasi || !keluhan) return;
+        if (!judul || !lokasi || !keluhan) return;
 
-    const list = document.getElementById('complaintList');
+        const list = document.getElementById('complaintList');
 
-    const item = document.createElement('div');
-    item.className = 'complaint-item';
-    item.innerHTML = `
-        <h4>${judul}</h4>
-        <p><strong>Lokasi:</strong> ${lokasi}</p>
-        <p>${keluhan}</p>
-    `;
+        // Create a new div for the heading if it doesn't exist
+        if (!list.querySelector('h3')) {
+            const heading = document.createElement('h3');
+            heading.textContent = 'Keluhan Terbaru:';
+            list.insertBefore(heading, list.firstChild);
+        }
+        
+        const item = document.createElement('div');
+        item.className = 'complaint-item';
+        item.innerHTML = `
+            <h4>${judul}</h4>
+            <p><strong>Lokasi:</strong> ${lokasi}</p>
+            <p>${keluhan}</p>
+        `;
 
-    list.appendChild(item);
+        // Insert new complaint after the heading (if exists) or at the beginning
+        const headingElement = list.querySelector('h3');
+        if (headingElement && headingElement.nextSibling) {
+            list.insertBefore(item, headingElement.nextSibling);
+        } else if (headingElement) {
+            list.appendChild(item);
+        }
+         else {
+            list.insertBefore(item, list.firstChild);
+        }
 
-    // Reset form
-    document.getElementById('complaintForm').reset();
-});
+
+        // Reset form
+        document.getElementById('complaintForm').reset();
+    });
+}
+
+// Forum Page Functionality
+// Ensure this code runs only on forum.html
+if (window.location.pathname.endsWith("forum.html")) {
+    const createDiscussionBtn = document.getElementById('createDiscussionBtn');
+    const newDiscussionFormContainer = document.getElementById('newDiscussionFormContainer');
+    const newDiscussionForm = document.getElementById('newDiscussionForm');
+    const cancelDiscussionBtn = document.getElementById('cancelDiscussionBtn');
+    const discussionList = document.querySelector('.discussion-list');
+
+    if (createDiscussionBtn) {
+        createDiscussionBtn.addEventListener('click', () => {
+            newDiscussionFormContainer.style.display = 'block';
+            createDiscussionBtn.style.display = 'none'; // Hide the "Buat Diskusi Baru" button
+        });
+    }
+
+    if (cancelDiscussionBtn) {
+        cancelDiscussionBtn.addEventListener('click', () => {
+            newDiscussionFormContainer.style.display = 'none';
+            createDiscussionBtn.style.display = 'block'; // Show the "Buat Diskusi Baru" button again
+            newDiscussionForm.reset();
+        });
+    }
+
+    if (newDiscussionForm) {
+        newDiscussionForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('discussionTitle').value.trim();
+            const content = document.getElementById('discussionContent').value.trim();
+            const author = document.getElementById('discussionAuthor').value.trim() || 'Anonim'; // Default to Anonim if no name
+
+            if (!title || !content) {
+                alert('Judul dan isi diskusi tidak boleh kosong!');
+                return;
+            }
+
+            const newDiscussionItem = document.createElement('div');
+            newDiscussionItem.classList.add('discussion-item');
+
+            // Get current time for "X jam yang lalu"
+            const now = new Date();
+            const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+
+            newDiscussionItem.innerHTML = `
+                <div class="discussion-avatar">👤</div>
+                <div class="discussion-content">
+                    <h3>${title}</h3>
+                    <p>${content}</p>
+                    <div class="discussion-meta">
+                        <span>Oleh: ${author}</span>
+                        <span>• Baru saja (${timeString})</span>
+                        <span>• 0 Balasan</span>
+                    </div>
+                </div>
+            `;
+            
+            // Prepend to the list so new discussions appear at the top
+            if (discussionList) {
+                 // Check if there's a "Diskusi Terbaru" heading, if not, create it.
+                let recentDiscussionsHeading = discussionList.previousElementSibling;
+                if (!recentDiscussionsHeading || recentDiscussionsHeading.tagName !== 'H2' || recentDiscussionsHeading.textContent !== 'Diskusi Terbaru') {
+                    const newHeading = document.createElement('h2');
+                    newHeading.textContent = 'Diskusi Terbaru';
+                    discussionList.parentNode.insertBefore(newHeading, discussionList);
+                }
+                discussionList.insertBefore(newDiscussionItem, discussionList.firstChild);
+            }
+
+
+            newDiscussionForm.reset();
+            newDiscussionFormContainer.style.display = 'none';
+            createDiscussionBtn.style.display = 'block'; // Show the "Buat Diskusi Baru" button again
+
+            alert('Diskusi berhasil dibuat!');
+        });
+    }
+}

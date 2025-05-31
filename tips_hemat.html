@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLife - Tips Hidup Ramah Lingkungan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5530;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #52c41a, #73d13d);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #2c5530;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #4a7c59;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .leaf-icon {
+            font-size: 3rem;
+            color: #52c41a;
+            margin-bottom: 1rem;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #52c41a, #73d13d, #95de64);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-card h2 {
+            color: #2c5530;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-icon {
+            font-size: 1.8rem;
+            color: #52c41a;
+        }
+
+        .article-card p {
+            margin-bottom: 1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tips-list li {
+            background: rgba(82, 196, 26, 0.1);
+            margin: 0.5rem 0;
+            padding: 0.8rem;
+            border-radius: 10px;
+            border-left: 4px solid #52c41a;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tips-list li:hover {
+            background: rgba(82, 196, 26, 0.2);
+            transform: translateX(5px);
+        }
+
+        .tips-list li::before {
+            content: "✓";
+            color: #52c41a;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #52c41a, #73d13d);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(82, 196, 26, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: rgba(44, 85, 48, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-bottom p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #52c41a, #73d13d);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(82, 196, 26, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(82, 196, 26, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">🌍</div>
+                EcoLife
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Articles</a></li>
+                <li><a href="Forum.html">Forum</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero-section">
+            <div class="leaf-icon">🌍</div>
+            <h1>Tips Hidup Ramah Lingkungan</h1>
+            <p class="subtitle">Panduan Lengkap untuk Kehidupan yang Berkelanjutan</p>
+        </section>
+
+        <div class="article-grid">
+            <article class="article-card">
+                <h2><span class="article-icon">♻️</span>Mengurangi Sampah Plastik</h2>
+                <p>Plastik menjadi salah satu penyumbang terbesar pencemaran lingkungan. Setiap tahun, jutaan ton sampah plastik berakhir di lautan dan merusak ekosistem laut.</p>
+                <ul class="tips-list">
+                    <li>Gunakan tas belanja yang dapat digunakan berulang kali</li>
+                    <li>Bawa botol minum sendiri saat bepergian</li>
+                    <li>Hindari penggunaan sedotan plastik sekali pakai</li>
+                    <li>Pilih produk dengan kemasan minimal atau ramah lingkungan</li>
+                    <li>Daur ulang botol plastik menjadi pot tanaman</li>
+                </ul>
+            </article>
+
+            <article class="article-card">
+                <h2><span class="article-icon">💡</span>Hemat Energi di Rumah</h2>
+                <p>Menghemat energi tidak hanya mengurangi tagihan listrik, tetapi juga membantu mengurangi emisi karbon yang berkontribusi pada perubahan iklim.</p>
+                <ul class="tips-list">
+                    <li>Ganti lampu biasa dengan lampu LED yang lebih efisien</li>
+                    <li>Cabut kabel elektronik yang tidak digunakan</li>
+                    <li>Gunakan AC pada suhu 24-26°C untuk efisiensi optimal</li>
+                    <li>Manfaatkan cahaya alami sebanyak mungkin di siang hari</li>
+                    <li>Pilih peralatan elektronik dengan label hemat energi</li>
+                </ul>
+            </article>
+
+            <article class="article-card">
+                <h2><span class="article-icon">🚶‍♂️</span>Transportasi Ramah Lingkungan</h2>
+                <p>Sektor transportasi menyumbang sekitar 24% dari total emisi gas rumah kaca global. Memilih transportasi yang tepat dapat membuat perbedaan besar.</p>
+                <ul class="tips-list">
+                    <li>Gunakan sepeda atau berjalan kaki untuk jarak dekat</li>
+                    <li>Manfaatkan transportasi umum seperti bus atau kereta</li>
+                    <li>Carpooling atau berbagi kendaraan dengan teman</li>
+                    <li>Pertimbangkan kendaraan listrik atau hybrid</li>
+                    <li>Gabungkan beberapa tujuan dalam satu perjalanan</li>
+                </ul>
+            </article>
+
+            <article class="article-card">
+                <h2><span class="article-icon">🌱</span>Berkebun Organik</h2>
+                <p>Berkebun organik tidak hanya menghasilkan makanan sehat, tetapi juga membantu menjaga keseimbangan ekosistem dan mengurangi penggunaan pestisida berbahaya.</p>
+                <ul class="tips-list">
+                    <li>Buat kompos dari sisa makanan organik</li>
+                    <li>Tanam sayuran dan buah-buahan sendiri</li>
+                    <li>Gunakan pupuk alami seperti kompos atau pupuk kandang</li>
+                    <li>Tanam tanaman yang dapat mengusir hama secara alami</li>
+                    <li>Kumpulkan air hujan untuk menyiram tanaman</li>
+                </ul>
+            </article>
+
+            <article class="article-card">
+                <h2><span class="article-icon">💧</span>Konservasi Air</h2>
+                <p>Air bersih adalah sumber daya yang semakin langka. Menghemat air adalah langkah penting untuk memastikan ketersediaan air untuk generasi mendatang.</p>
+                <ul class="tips-list">
+                    <li>Perbaiki kebocoran pipa atau keran yang menetes</li>
+                    <li>Gunakan shower timer untuk membatasi waktu mandi</li>
+                    <li>Kumpulkan air hujan untuk menyiram tanaman</li>
+                    <li>Gunakan mesin cuci dan pencuci piring saat penuh</li>
+                    <li>Pasang toilet dengan sistem flush ganda</li>
+                </ul>
+            </article>
+
+            <article class="article-card">
+                <h2><span class="article-icon">🛒</span>Konsumsi Berkelanjutan</h2>
+                <p>Pola konsumsi yang berkelanjutan membantu mengurangi jejak karbon dan mendukung ekonomi lokal serta praktik bisnis yang bertanggung jawab.</p>
+                <ul class="tips-list">
+                    <li>Beli produk lokal untuk mengurangi jejak karbon transportasi</li>
+                    <li>Pilih produk organik dan fair trade</li>
+                    <li>Kurangi konsumsi daging dan perbanyak sayuran</li>
+                    <li>Beli barang berkualitas tinggi yang tahan lama</li>
+                    <li>Hindari fast fashion dan pilih pakaian berkualitas</li>
+                </ul>
+            </article>
+        </div>
+
+        <section class="stats-section">
+            <h2>Dampak Positif Hidup Ramah Lingkungan</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">30%</span>
+                    <span class="stat-label">Pengurangan Sampah Rumah Tangga</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25%</span>
+                    <span class="stat-label">Penghematan Tagihan Listrik</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Pengurangan Jejak Karbon</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50%</span>
+                    <span class="stat-label">Penghematan Air</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoLife. Semua hak dilindungi. Dibuat dengan ❤️ untuk Bumi.</p>
+        </div>
+    </footer>
+</body>
+</html>

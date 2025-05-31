@@ -1,12 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Forum - EcoLife</title>
     <link rel="stylesheet" href="css/forum.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 </head>
 <body>
-    
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo" class="logo-icon">
+                EcoLife
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Articles</a></li>
+                <li><a href="Forum.html">Forum</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Forum Section -->
+    <section class="forum-section">
+        <div class="container">
+            <h1 class="section-title">Forum Diskusi EcoLife</h1>
+            
+            <!-- New Discussion Form (Initially Hidden) -->
+            <div class="new-discussion-form-container" id="newDiscussionFormContainer" style="display: none;">
+                <h2>Buat Diskusi Baru</h2>
+                    <form id="newDiscussionForm" class="new-discussion-form">
+                        <input type="text" id="discussionTitle" placeholder="Judul Diskusi" required>
+                        <textarea id="discussionContent" placeholder="Isi diskusi Anda..." rows="5" required></textarea>
+                        <input type="text" id="discussionAuthor" placeholder="Nama Anda" required>
+                        <button type="submit" class="submit-discussion-btn">Kirim Diskusi</button>
+                        <button type="button" class="cancel-discussion-btn" id="cancelDiscussionBtn">Batal</button>
+                    </form>
+                </div>
+
+                <!-- Recent Discussions -->
+                <div class="recent-discussions">
+                    <h2>Diskusi Terbaru</h2>
+                    <div class="discussion-list">
+                        <div class="discussion-item">
+                            <div class="discussion-avatar">👤</div>
+                            <div class="discussion-content">
+                                <h3>Tips Menghemat Air di Rumah</h3>
+                                <p>Bagaimana cara efektif menghemat penggunaan air dalam kehidupan sehari-hari?</p>
+                                <div class="discussion-meta">
+                                    <span>Oleh: Ahmad</span>
+                                    <span>• 2 jam yang lalu</span>
+                                    <span>• 12 Balasan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="discussion-item">
+                            <div class="discussion-avatar">👤</div>
+                            <div class="discussion-content">
+                                <h3>Membuat Kompos dari Sampah Dapur</h3>
+                                <p>Mari berbagi pengalaman membuat kompos dari sampah organik rumah tangga!</p>
+                                <div class="discussion-meta">
+                                    <span>Oleh: Sarah</span>
+                                    <span>• 5 jam yang lalu</span>
+                                    <span>• 8 Balasan</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="discussion-item">
+                            <div class="discussion-avatar">👤</div>
+                            <div class="discussion-content">
+                                <h3>Panel Surya untuk Rumah</h3>
+                                <p>Diskusi tentang instalasi dan manfaat panel surya untuk rumah tinggal.</p>
+                                <div class="discussion-meta">
+                                    <span>Oleh: Budi</span>
+                                    <span>• 1 hari yang lalu</span>
+                                    <span>• 15 Balasan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- New Discussion Button -->
+            <div class="new-discussion">
+                <button class="create-discussion-btn" id="createDiscussionBtn">Buat Diskusi Baru</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🌱 EcoLife</h3>
+                    <p>Platform edukasi lingkungan untuk kehidupan yang lebih berkelanjutan dan ramah lingkungan.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p>📧 info@ecolife.com</p>
+                    <p>📱 +62 123 456 789</p>
+                    <p>📍 Jakarta, Indonesia</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Media Sosial</h3>
+                    <p><a href="https://www.facebook.com/profile.php?id=100008601467137">Facebook</a></p>
+                    <p><a href="https://www.instagram.com/fadli_pratama/">Instagram</a></p>
+                    <p><a href="https://twitter.com/fadli_pratama">Twitter</a></p>
+                    <p><a href="https://www.youtube.com/@fadli_pratama">YouTube</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Bergabung</h3>
+                    <p>Daftarkan email Anda untuk mendapatkan tips lingkungan terbaru dan artikel menarik dari kami.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 EcoLife. Semua hak dilindungi. Dibuat dengan ❤️ untuk Bumi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

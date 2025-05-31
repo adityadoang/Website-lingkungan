@@ -3,25 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Environmental Organization</title>
     <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
-        <!-- Profile Section -->
-    <section class="profile-section" id="about">
+     <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo" class="logo-icon">
+                EcoLife
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Articles</a></li>
+                <li><a href="Forum.html">Forum</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about-section">
         <div class="container">
-            <div class="profile-content">
-                <div class="profile-image">
-                    <img src="img/bumi.png" alt="" class="profile-img">
+            <div class="about-content">
+                <div class="about-text">
+                    <h1>About Us</h1>
+                    <p>Kami adalah organisasi yang berkomitmen untuk menjembatani kesenjangan antara teknologi dan lingkungan hidup. Dengan mengintegrasikan solusi teknologi modern dengan praktik berkelanjutan, kami berupaya menciptakan masa depan yang lebih hijau dan berkelanjutan.</p>
+                    <p>Melalui pendekatan holistik yang menggabungkan inovasi, edukasi, dan aksi komunitas, kami bekerja sama dengan berbagai pihak untuk menciptakan dampak positif bagi planet ini dan generasi mendatang.</p>
                 </div>
-                <div class="profile-text">
-                    <h2>Tentang EcoLife</h2>
-                    <p>EcoLife adalah platform yang berkomitmen untuk memberikan edukasi dan solusi praktis dalam menjaga kelestarian lingkungan. Kami percaya bahwa setiap langkah kecil yang kita ambil hari ini akan memberikan dampak besar untuk generasi mendatang.</p>
-                    <p>Melalui artikel, tips, dan panduan yang kami sediakan, kami mengajak setiap individu untuk turut serta dalam misi pelestarian bumi. Bersama-sama, kita dapat menciptakan perubahan positif untuk lingkungan yang lebih sehat dan berkelanjutan.</p>
-                    <p>Mari bergabung dengan gerakan hijau dan jadilah bagian dari solusi untuk planet yang lebih baik!</p>
+                <div class="earth-container">
+                    <img src="img/bumi.png" alt="Earth" class="earth-img" id="earth">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Our Principal Section -->
+    <section class="principal-section">
+        <div class="container">
+            <h2>Our Principal</h2>
+            <div class="principles">
+                <div class="principle">Education</div>
+                <div class="principle">Efficiency</div>
+                <div class="principle">Action</div>
+                <div class="principle">Transparency</div>
+                <div class="principle">Community</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education-section section">
+        <div class="container">
+            <div class="education-content">
+                <div class="education-text">
+                    <h2>Education</h2>
+                    <p>Membangun kesadaran dan pengetahuan tentang isu-isu lingkungan melalui program edukasi yang komprehensif dan inovatif. Dengan menggabungkan teknologi modern dan metode pembelajaran interaktif, kami menciptakan pengalaman belajar yang menarik dan bermakna untuk semua kalangan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Efficiency Section -->
+    <section class="efficiency-section section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Efficiency</h2>
+                    <p>Mengoptimalkan penggunaan sumber daya melalui desain dan teknologi yang hemat energi dan ramah digital. Kami berkomitmen untuk menerapkan praktik-praktik efisien yang mengurangi jejak karbon dan memaksimalkan dampak positif dari setiap inisiatif yang kami jalankan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Section -->
+    <section class="action-section section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Action</h2>
+                    <p>Mengimplementasikan solusi nyata dan terukur untuk mengatasi tantangan lingkungan. Kami tidak hanya berbicara tentang perubahan, tetapi juga mengambil langkah konkret untuk menciptakan dampak positif bagi lingkungan melalui program-program aksi yang berkelanjutan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency-section section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Transparency</h2>
+                    <p>Menyediakan informasi yang jelas, akurat, dan mudah diakses tentang semua aspek kegiatan kami. Dengan transparansi penuh, kami membangun kepercayaan dan memungkinkan masyarakat untuk memahami dan berpartisipasi dalam misi lingkungan kami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Community</h2>
+                    <p>Membangun komunitas yang kuat dan kolaboratif untuk mendukung gerakan lingkungan bersama. Melalui platform interaktif dan program kemitraan, kami menciptakan ruang bagi individu dan organisasi untuk saling berbagi, belajar, dan bekerja sama dalam menciptakan perubahan positif.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to principles
+        const principles = document.querySelectorAll('.principle');
+        
+        function animatePrinciples() {
+            principles.forEach((principle, index) => {
+                const rect = principle.getBoundingClientRect();
+                const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+                
+                if (isVisible) {
+                    setTimeout(() => {
+                        principle.style.animation = `slideUp 0.6s ease forwards`;
+                    }, index * 100);
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animatePrinciples);
+
+        // Interactive hover effect for earth image
+        const earthImg = document.getElementById('earth');
+        
+        earthImg.addEventListener('mouseenter', function() {
+            this.style.animationPlayState = 'paused';
+            this.style.transform = 'scale(1.1)';
+        });
+        
+        earthImg.addEventListener('mouseleave', function() {
+            this.style.animationPlayState = 'running';
+            this.style.transform = 'scale(1)';
+        });
+    </script>
 </body>
 </html>
