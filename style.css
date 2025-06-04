@@ -45,10 +45,8 @@ nav {
   margin-right: 0.5rem;
 }
 
-
 .nav-links {
   display: flex;
-
   gap: 2rem;
   list-style: none;
 }
@@ -64,7 +62,7 @@ nav {
 
 /* Slider */
 .slider {
-  margin-top: 80px;
+  margin-top: 80px; /* Sesuaikan dengan tinggi header Anda jika berubah */
   height: 500px;
   position: relative;
   overflow: hidden;
@@ -214,19 +212,16 @@ nav {
 .btn-all-articles {
   padding: 12px 30px;
   background-color: #ecf39e;
-  color: #31572c;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: bold; 
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .btn-all-articles:hover {
-  background-color: #ecf39e;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 .btn-all-articles:active {
-  background-color: #ecf39e;
   transform: translateY(0);
 }
 
