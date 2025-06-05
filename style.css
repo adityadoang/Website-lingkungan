@@ -118,7 +118,7 @@ nav {
 /* Profile Section */
 .profile-section {
   padding: 4rem 0;
-  background: #ecf39e;
+  background: #ffffff;
 }
 .profile-content {
   display: grid;
@@ -152,7 +152,7 @@ nav {
 }
 .section-title {
   text-align: center;
-  color: #ecf39e;
+  color: #ffffff;
   font-size: 2.5rem;
   margin-bottom: 3rem;
 }
@@ -162,7 +162,7 @@ nav {
   gap: 2rem;
 }
 .article-card {
-  background: #ecf39e;
+  background: #ffffff;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -173,8 +173,6 @@ nav {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
-.article-card:nth-child(2) { animation-delay: 0.2s; }
-.article-card:nth-child(3) { animation-delay: 0.4s; }
 
 .article-image {
   height: 200px;
@@ -206,16 +204,16 @@ nav {
   font-weight: 500;
   transition: 0.3s;
 }
-.read-more:hover {
-  color: #4f772d;
-}
 .btn-all-articles {
   padding: 12px 30px;
-  background-color: #ecf39e;
+  background-color: #ffffff;
   font-size: 16px;
   font-weight: bold; 
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.read-more:hover {
+  color: #4f772d;
 }
 .btn-all-articles:hover {
   transform: translateY(-2px);
