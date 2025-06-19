@@ -1,37 +1,37 @@
-// Slider functionality
-const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
+// Slider 
+const slides = document.querySelectorAll('.slide');//semua elemen dengan class slide disimpan dalam variabel slides
+let currentSlide = 0;//posisi slide saat ini
 
 function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
+    slides.forEach(slide => slide.classList.remove('active'));//perulangan untuk menghapus class active dari semua slide
     slides[n].classList.add('active');
 }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
+function nextSlide() { // fungsi untuk menampilkan slide berikutnya
+    currentSlide = (currentSlide + 1) % slides.length; // menambahkan 1 ke currentSlide, jika sudah mencapai akhir, kembali ke awal
     showSlide(currentSlide);
 }
 
-// Auto slide every 4 seconds
+// Auto slide 4 detik
 setInterval(nextSlide, 4000);
 
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+//  animasi
+const observerOptions = { 
+    threshold: 0.1, //menentukan seberapa banyak elemen harus terlihat sebelum trigger 10% dr elemen terlihat
+    rootMargin: '0px 0px -50px 0px' // margin untuk mengatur jarak dari viewport, -50px berarti elemen akan mulai terlihat ketika 50px dari bawah viewport
 };
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+const observer = new IntersectionObserver(function(entries) { // Callback function yang akan dipanggil ketika elemen masuk ke viewport
+    entries.forEach(entry => { // perulangan untuk setiap entry yang diamati
+        if (entry.isIntersecting) { // jika entry terlihat di viewport
+            entry.target.style.opacity = '1'; // mengubah opacity menjadi 1
+            entry.target.style.transform = 'translateY(0)'; 
         }
     });
 }, observerOptions);
 
-// Observe all article cards
+//  article cards
 document.querySelectorAll('.article-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
